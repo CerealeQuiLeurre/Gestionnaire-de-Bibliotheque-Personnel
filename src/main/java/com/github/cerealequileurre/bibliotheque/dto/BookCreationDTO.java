@@ -7,14 +7,14 @@ import java.time.LocalDate;
 
 public record BookCreationDTO(
 
-        @NotBlank(message = "Le titre ne peut pas être vide") String titre,
+                @NotBlank(message = "Le titre ne peut pas être vide") String titre,
 
-        @NotBlank(message = "Le nom de l'auteur est obligatoire") String auteur,
+                @NotBlank(message = "Le nom de l'auteur est obligatoire") String auteur,
 
-        String isbn,
+                String isbn,
 
-        LocalDate dateLecture,
+                LocalDate dateLecture,
 
-        @Min(value = 0, message = "La note minimale est de 0") @Max(value = 5, message = "La note maximale est de 5") Integer note) {
+                @Min(value = 0, message = "La note minimale est de 0") @Max(value = 5, message = "La note maximale est de 5") Integer note) {
 
 }

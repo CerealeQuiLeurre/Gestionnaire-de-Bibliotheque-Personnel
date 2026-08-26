@@ -19,6 +19,9 @@ public class Book {
     private LocalDate dateLecture;
     private Integer note;
 
+    public Book() {
+    }
+
     public Book(Long id, String titre, String auteur, String isbn, LocalDate dateLecture, Integer note) {
         this.id = id;
         this.titre = titre;
@@ -75,5 +78,4 @@ public class Book {
     public void setNote(Integer note) {
         this.note = note;
     }
-
 }
