@@ -30,4 +30,24 @@ public class BookService {
     public List<Book> getAllBooks() {
         return bookRepository.findAll();
     }
+
+    public Book getBookById(Long id) {
+        return bookRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Livre introuvable avec l'id : " + id));
+    }
+
+    public Book updateBook(Long id, BookCreationDTO dto) {
+        Book book = getBookById(id);
+        book.setTitre(dto.titre());
+        book.setAuteur(dto.auteur());
+        book.setIsbn(dto.isbn());
+        book.setDateLecture(dto.dateLecture());
+        book.setNote(dto.note());
+        return bookRepository.save(book);
+    }
+
+    public void deleteBook(Long id) {
+        Book book = getBookById(id);
+        bookRepository.delete(book);
+    }
 }
